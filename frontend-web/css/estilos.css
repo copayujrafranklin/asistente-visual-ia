@@ -1,0 +1,99 @@
+/* frontend-web/css/estilos.css */
+
+/* Paleta de colores de alto contraste (Negro, Amarillo y Blanco) para condiciones de Baja Visión */
+:root {
+    --color-fondo: #121212;
+    --color-panel: #000000;
+    --color-activo: #FFD700; /* Amarillo de alta visibilidad estándar WCAG */
+    --color-texto: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-fondo);
+    overflow: hidden;
+}
+
+#contenedor-app {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* El flujo de video se despliega al fondo para control del jurado */
+#video-camara {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transform: scaleX(1); /* Mantiene la orientación real de la cámara trasera */
+}
+
+/* Panel de lectura con opacidad negra sólida para superponer texto legible */
+#panel-lectura {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    border-bottom: 4px solid var(--color-activo);
+    padding: 25px;
+    text-align: center;
+    z-index: 2;
+}
+
+#texto-estado {
+    color: var(--color-texto);
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+/* Botón interactivo gigante para fácil pulsación sin necesidad de ver la pantalla */
+#btn-accion {
+    position: absolute;
+    bottom: 40px;
+    left: 5%;
+    width: 90%;
+    height: 85px;
+    background-color: var(--color-activo);
+    border: none;
+    border-radius: 15px;
+    color: #000000;
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    z-index: 2;
+    transition: background-color 0.2s;
+}
+
+#btn-accion:active {
+    background-color: #cca300;
+}
+
+/* Ocultar elementos visuales redundantes pero mantenerlos legibles para lectores de pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
